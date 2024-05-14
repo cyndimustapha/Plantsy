@@ -1,0 +1,46 @@
+{
+	"plants": [
+		{
+			"id": 1,
+			"name": "Aloe",
+			"image": "./images/aloe.jpg",
+			"price": 15.99
+		},
+		{
+			"id": 2,
+			"name": "ZZ Plant",
+			"image": "./images/zz-plant.jpg",
+			"price": 25.98
+		},
+		{
+			"id": 3,
+			"name": "Pilea peperomioides",
+			"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7br4s3I1fwSuojcrrYPiZ6JtzZotqN0N3DyeVMdT7wgm8EBkI",
+			"price": 5.99
+		},
+		{
+			"id": 4,
+			"name": "Pothos",
+			"image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSW7rwbE5HBupyKGdImw-VNWX9ATa6q_AhCQsdp76qISZ4gveOI",
+			"price": 12.11
+		},
+		{
+			"id": 5,
+			"name": "Jade",
+			"image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSOpwKwEmShj3ycl8PJdnPKRTghy-NH4ACWbwLVOOsiFWjVAzcD",
+			"price": 10.37
+		},
+		{
+			"id": 6,
+			"name": "Monstera Deliciosa",
+			"image": "./images/monstera.jpg",
+			"price": 25.99
+		},
+		{
+			"id": 7,
+			"name": "Fiddle Leaf Fig",
+			"image": "./images/fiddle-leaf-fig.jpg",
+			"price": 55
+		}
+	]
+}
