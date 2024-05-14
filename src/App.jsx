@@ -1,40 +1,45 @@
-import { useEffect, useState } from 'react';
-import AddPlant from './components/AddPlant';
-import Logo from './components/Logo';
-import PlantList from './components/PlantList';
-import SearchPlant from './components/SearchPlant';
+// App.js
+import React, { useEffect, useState } from "react";
+import AddPlant from "./components/AddPlant";
+import Logo from "./components/Logo";
+import PlantList from "./components/PlantList";
+import SearchPlant from "./components/SearchPlant";
 
-// declarative
 function App() {
-	const [plants, setPlants] = useState([]);
-	const [searchInput, setSearchInput] = useState('');
+  const [plants, setPlants] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
 
-	useEffect(() => {
-		fetch('http://localhost:3000/plants', {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		})
-			.then((res) => res.json())
-			.then((data) => setPlants(data));
-	}, []);
+  useEffect(() => {
+    // fetching plant data
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/plants");
+        const data = await response.json();
+        setPlants(data);
+      } catch (error) {
+        console.error("Error fetching plant data:", error);
+      }
+    };
 
-	const filteredPlants = plants.filter((plant) =>
-		plant.name.toLowerCase().includes(searchInput.toLowerCase())
-	);
+    fetchData();
+  }, []);
 
-	return (
-		<main className="px-10">
-			<Logo />
-			<AddPlant />
-			<SearchPlant
-				setSearchInput={setSearchInput}
-				searchInput={searchInput}
-			/>
-			<PlantList plants={filteredPlants} />
-		</main>
-	);
+  const handleAddPlant = (newPlant) => {
+    setPlants((prevPlants) => [...prevPlants, { ...newPlant, id: Date.now() }]);
+  };
+
+  const filteredPlants = plants.filter((plant) =>
+    plant.name.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
+  return (
+    <main className="px-10">
+      <Logo />
+      <AddPlant onAddPlant={handleAddPlant} />
+      <SearchPlant setSearchInput={setSearchInput} searchInput={searchInput} />
+      <PlantList plants={filteredPlants} />
+    </main>
+  );
 }
 
 export default App;

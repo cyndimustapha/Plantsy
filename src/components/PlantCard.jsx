@@ -1,3 +1,5 @@
+import React from "react";
+
 function PlantCard({ id, image, name, price }) {
 	return (
 		<div className="w-full">
