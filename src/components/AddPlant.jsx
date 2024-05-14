@@ -4,11 +4,10 @@ import React, { useState } from "react";
 function AddPlant({ onAddPlant }) {
   const [plantName, setPlantName] = useState("");
   const [plantPrice, setPlantPrice] = useState("");
-  const [plantImage, setPLantImage] = useState("")
+  const [plantImage, setPLantImage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Pass the new plant data to the parent component
     onAddPlant({ name: plantName, price: plantPrice, image: plantImage});
     // Clear input fields after submission
     setPlantName("");
@@ -28,11 +27,11 @@ function AddPlant({ onAddPlant }) {
         required
       />
       <input
-        type="link"
+        type="text"
         placeholder="Image-URL"
         className="border-b-2 border-gray-600 outline-none focus:border-green-500 w-full mb-4"
         value={plantImage}
-        onChange={(e) => setPlantImage(e.target.value)}
+        onChange={(e) => setPLantImage(e.target.value)}
         required
       />
       <input
